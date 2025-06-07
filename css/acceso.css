@@ -1,0 +1,8 @@
+body { background: #f6f9fc; }
+.brand-title { color: #0d6efd; font-weight:700; }
+.brand-subtitle { color:#697a99; }
+.card {
+  border: none;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(50, 82, 173, 0.13);
+}
