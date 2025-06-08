@@ -9,6 +9,79 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body> 
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-white border-end sidebar" id="sidebar-wrapper">
+      <div class="sidebar-heading text-center py-4">
+        <h4 class="m-0 brand-title">Gestión de Stock</h4>
+      </div>
+      <div class="list-group list-group-flush">
+        <a href="dashboard.html" class="list-group-item list-group-item-action" id="nav-dashboard">
+          <i class="bi bi-bar-chart-fill me-2"></i> Dashboard
+        </a>
+        <a href="productos.html" class="list-group-item list-group-item-action" id="nav-productos">
+          <i class="bi bi-box-seam me-2"></i> Productos
+        </a>
+        <a href="prediccion.html" class="list-group-item list-group-item-action active" id="nav-prediccion">
+          <i class="bi bi-graph-up-arrow me-2"></i> Predicción de Stock
+        </a>
+        <a href="usuarios.html" class="list-group-item list-group-item-action" id="nav-usuarios">
+          <i class="bi bi-people-fill me-2"></i> Usuarios
+        </a>
+        <a href="index.html" class="list-group-item list-group-item-action text-danger" id="logout-btn">
+          <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+        </a>
+      </div>
+    </div>
 
+    <!-- Page Content -->
+    <div id="page-content-wrapper" class="flex-grow-1">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4">
+        <button class="btn btn-outline-primary me-3" id="menu-toggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="ms-auto d-flex align-items-center">
+          <span id="user-name" class="fw-semibold me-3" style="color:#0d6efd;"></span>
+          <img id="user-photo" src="" class="rounded-circle" width="40" height="40" alt="Foto usuario">
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="container-fluid py-4" id="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+          <h2 class="mb-0" style="color:#0d6efd;">Predicción de Stock</h2>
+        </div>
+        <div class="mb-3" style="max-width:250px;">
+          <label for="input-prediccion-dias" class="form-label">Período de análisis (días):</label>
+          <input type="number" id="input-prediccion-dias" class="form-control" value="30" min="7" max="365">
+        </div>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div id="prediccionError" class="alert alert-danger d-none">No se pudo cargar la predicción.</div>
+            <div class="table-responsive">
+              <table class="table align-middle">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Stock actual</th>
+                    <th>Consumo diario</th>
+                    <th>Días restantes (estimados)</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-prediccion-stock">
+                  <!-- JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/permisos.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/prediccion.js"></script>
+  <script src="https:    
 </body>
 </html>
