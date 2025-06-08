@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
- <div class="d-flex" id="wrapper">
+  <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
     <div class="bg-white border-end sidebar" id="sidebar-wrapper">
       <div class="sidebar-heading text-center py-4">
@@ -33,7 +33,8 @@
         </a>
       </div>
     </div>
- <!-- Page Content -->
+
+    <!-- Page Content -->
     <div id="page-content-wrapper" class="flex-grow-1">
       <!-- Topbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4">
@@ -206,6 +207,101 @@
     </div>
   </div>
 
-     
+  <!-- Modal Eliminar Producto -->
+  <div class="modal fade" id="modalEliminarProducto" tabindex="-1" aria-labelledby="modalEliminarProductoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" id="formEliminarProducto">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEliminarProductoLabel">Eliminar producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="eliminar-id">
+          <p>¿Estás seguro que deseas eliminar el producto <span id="eliminar-nombre" class="fw-bold"></span>?</p>
+          <div id="eliminarProductoExito" class="alert alert-success d-none">Producto eliminado correctamente.</div>
+          <div id="eliminarProductoError" class="alert alert-danger d-none">No se pudo eliminar el producto.</div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<!-- Modal Movimiento de Stock -->
+<div class="modal fade" id="modalMovimientoStock" tabindex="-1" aria-labelledby="modalMovimientoStockLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" id="formMovimientoStock">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalMovimientoStockLabel">Registrar Movimiento de Stock</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="mov-product-id">
+        <div class="mb-3">
+          <label for="mov-tipo" class="form-label">Tipo de Movimiento</label>
+          <select id="mov-tipo" class="form-select" required>
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="Ingreso">Ingreso</option>
+            <option value="Egreso">Egreso</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="mov-cantidad" class="form-label">Cantidad</label>
+          <input type="number" id="mov-cantidad" class="form-control" required min="1">
+        </div>
+        <div class="mb-3">
+          <label for="mov-descripcion" class="form-label">Descripción</label>
+          <select id="mov-descripcion" class="form-select" required>
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="Compra">Compra</option>
+            <option value="Venta">Venta</option>
+          </select>
+        </div>
+        <div id="movimientoStockExito" class="alert alert-success d-none">Movimiento registrado.</div>
+        <div id="movimientoStockError" class="alert alert-danger d-none">No se pudo registrar el movimiento.</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <!-- Modal Historial de Movimientos -->
+  <div class="modal fade" id="modalHistorialMovimientos" tabindex="-1" aria-labelledby="modalHistorialMovimientosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalHistorialMovimientosLabel">Historial de movimientos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div id="movimientosError" class="alert alert-danger d-none">No se pudieron cargar los movimientos.</div>
+          <div class="table-responsive">
+            <table class="table table-striped align-middle">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Tipo</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody id="historialMovimientosTbody">
+                <!-- JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/permisos.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
