@@ -50,3 +50,34 @@ Sistema de gestión de productos y stock desarrollado como parte del Trabajo Pr�
    ```
 
 ---
+
+##  Ejecución de pruebas
+
+Para ejecutar las pruebas unitarias:
+
+```bash
+pytest -v -s
+```
+
+Esto corre las pruebas definidas en `tests/`, utilizando una base de datos SQLite en memoria para garantizar aislamiento.
+
+---
+
+##  Estructura de carpetas
+
+```
+TP Programacion/
+│
+├── backend/             # Lógica de negocio y API
+│   ├── main.py
+│   ├── models.py
+│   ├── crud.py
+│   └── ...
+│
+├── tests/               # Pruebas automatizadas con pytest
+│   ├── conftest.py
+│   └── test_productos.py
+│
+├── requirements.txt     # Dependencias del proyecto
+└── README.md            # Este archivo
+```
